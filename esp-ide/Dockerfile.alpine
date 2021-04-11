@@ -1,0 +1,27 @@
+FROM alpine:latest
+ENV PYTHONUNBUFFERED 1
+WORKDIR /esp
+RUN apk add --no-cache \
+      bash \
+      bison \
+      cargo \
+      ccache \
+      cmake \
+      g++ \
+      gcc \
+      git \
+      gperf \
+      libffi-dev \
+      libusb \
+      make \
+      musl-dev \
+      ninja \
+      openssl-dev \
+      py3-pip \
+      python3-dev \
+      rust \
+      which \
+   && apk add dfu-util --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
+RUN git clone --recursive https://github.com/espressif/esp-idf.git .
+RUN ./install.sh
+RUN echo "source /esp/export.sh" > ~/.bashrc
