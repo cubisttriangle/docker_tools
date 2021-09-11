@@ -2,7 +2,7 @@
 
 ## Install docker
 
-Normally, it's best to get the [latest software](https://hub.docker.com/search?q=&type=edition&offering=community&operating_system=linux) from the docker website, but since this I'm running ArchLinux, I'll trust the package manager.
+Get the [latest software](https://hub.docker.com/search?q=&type=edition&offering=community&operating_system=linux) from the docker website or your package manager.
 
     sudo pacman -Su docker
 
