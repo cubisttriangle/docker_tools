@@ -1,4 +1,4 @@
-# Docker environment for working with the Raspbery Pi Pico
+# Docker environment for working with the Raspberry Pi Pico
 
 The docker container can be built using `build.sh` and it can be run using `run.sh`.
 
@@ -6,7 +6,7 @@ The docker container can be built using `build.sh` and it can be run using `run.
 
 This is info is documented in section 3.2 of 'Getting started with Raspberry Pi Pico'.
 
-You may notice that your pico doesn't show up `/dev/tty*`, however `dmesg` shows it getting mounted as a mass storage device. Mounting the pico will allow you load uf2 binaries by copying them to the mount point.
+You may notice that your pico doesn't show up `/dev/tty*`, however `dmesg` shows it getting mounted as a mass storage device. Mounting the pico will allow you load uf2 binaries by copying them to the mount point. Note: the pico only shows up as a USB serial device if the program is compiled with it enabled.
 
 To mount the pico, find the pico device partition:
 > `lsblk -f`
