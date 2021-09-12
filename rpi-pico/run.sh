@@ -6,14 +6,14 @@
 # $@ - command + args to run (default: /bin/bash)
 
 instance_name="rpi-pico-dev"
-usb_device="/dev/ttyUSB0"
-image="ubunut-rpi-pico-env"
+image="ubuntu-rpi-pico-env"
 dir="/code"
+mnt="/mnt/pico"
 cmd=${@:-/bin/bash}
 
 docker run --name $instance_name -it --rm --net=host \
-    --device=$usb_device \
     -w $dir \
     -v $PWD:$dir:delegated \
+    --mount type=bind,source=$mnt,target=$mnt \
     $image \
     $cmd
