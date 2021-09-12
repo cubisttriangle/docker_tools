@@ -2,7 +2,9 @@
 
 The docker container can be built using `build.sh` and it can be run using `run.sh`.
 
-## Mounting the pico (section 3.2 of Getting started with Raspberry Pi Pico)
+## Mounting the pico
+
+This is info is documented in section 3.2 of 'Getting started with Raspberry Pi Pico'.
 
 You may notice that your pico doesn't show up `/dev/tty*`, however `dmesg` shows it getting mounted as a mass storage device. Mounting the pico will allow you load uf2 binaries by copying them to the mount point.
 
