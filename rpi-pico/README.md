@@ -20,7 +20,7 @@ Now create a mount point and mount the pico:
 
 > `sudo mkdir /mnt/pico`
 > 
-> `sudo mount /dev/sdi1 /mnt/pico`
+> `sudo mount -o uid=1000 /dev/sdi1 /mnt/pico`
 
 ## Loading a program
 After mounting the pico, you can load a new program by copying:
