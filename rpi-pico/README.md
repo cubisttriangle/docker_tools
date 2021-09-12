@@ -39,6 +39,7 @@ To debug, watch the system log with: `journalctl -f`
 After mounting the pico, you can load a new program by copying:
 
 > `sudo cp blink.uf2 /mnt/pico`
+> 
 > `sudo sync`
 
 Once the pico restarts, you should see that your program is running.
