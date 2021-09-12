@@ -2,7 +2,7 @@
 
 The docker container can be built using `build.sh` and it can be run using `run.sh`.
 
-## Mounting the pico
+## Manually mounting the pico
 
 This is info is documented in section 3.2 of 'Getting started with Raspberry Pi Pico'.
 
@@ -20,7 +20,20 @@ Now create a mount point and mount the pico:
 
 > `sudo mkdir /mnt/pico`
 > 
-> `sudo mount -o uid=1000 /dev/sdi1 /mnt/pico`
+> `sudo mount -o gid=users,fmask=113,dmask=002 /dev/sdi1 /mnt/pico`
+
+## Auto-mounting the pico with udev
+
+Create the mount point: `sudo mkdir /mnt/pico`
+
+Add the following rule to a new file in `/etc/udev/rules.d`:
+> `ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0003", RUN+="/usr/bin/logger --tag rpi-pico-mount Mounting what seems to be a Raspberry Pi Pico", RUN+="/usr/bin/systemd-mount --no-block --collect -o gid=users,fmask=113,dmask=002 $devnode /mnt/pico"`
+
+Then reload udev with: `sudo udevadm control --reload`
+
+On the next plug event (while `BOOTSEL` is depressed), the pico should get mounted to: `/mnt/pico`
+
+To debug, watch the system log with: `journalctl -f`
 
 ## Loading a program
 After mounting the pico, you can load a new program by copying:
