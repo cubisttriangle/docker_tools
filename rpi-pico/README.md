@@ -1,6 +1,6 @@
 # Docker environment for working with the Raspberry Pi Pico
 
-The docker container can be built using `build.sh` and it can be run using `run.sh`.
+The docker container can be built using `build.sh` and it can be run using `run.sh`. This container mounts `/mnt/pico` to the same location inside the container, so the pico actually needs to be mounted at this location first. See the following sections for how to mount the device.
 
 ## Manually mounting the pico
 
