@@ -35,6 +35,9 @@ On the next plug event (while `BOOTSEL` is depressed), the pico should get mount
 
 To debug, watch the system log with: `journalctl -f`
 
+## Building for your board
+The pico-sdk supports many [board layouts](https://github.com/raspberrypi/pico-sdk/tree/master/src/boards/include/boards). If you're not using the Raspberry Pi Pico, you may need to export the `PICO_BOARD` environment variable before running cmake and including the `pico-sdk`. For example, if you are using the Sparkfun Pro Micro RP2040 board, do `export PICO_BOARD="sparkfun_promicro"`. This lets the `pico-sdk` know you want to use the board definitions supplie in [sparkfun_promicro.h](https://github.com/raspberrypi/pico-sdk/blob/master/src/boards/include/boards/sparkfun_promicro.h).
+
 ## Loading a program
 After mounting the pico, you can load a new program by copying:
 
