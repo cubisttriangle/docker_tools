@@ -46,3 +46,6 @@ After mounting the pico, you can load a new program by copying:
 > `sudo sync`
 
 Once the pico restarts, you should see that your program is running.
+
+## Troubleshooting
+If you can't seem to get the device to load as a usb storage device, you may have just updated your kernel and you need reboot to reload the `usb_storage` module.
